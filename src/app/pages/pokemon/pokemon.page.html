@@ -1,0 +1,71 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-title [routerLink]="['/home']">Voltar</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+
+<ion-content class="ion-padding pokemon-page ">
+  <ion-grid>
+    <ion-row class="col-bg">
+      <ion-col size="12" size-md="4">
+        <ion-card class="profile-card pokemon-font">
+          <ion-grid>
+            <ion-row>
+              <ion-card-title>#{{ pokemon?.id }} {{ pokemon?.name | titlecase }}</ion-card-title>
+            </ion-row>
+            <ion-row>
+              <img [src]="pokemon?.image" alt="{{pokemon?.name}}" class="pokemon-img" />
+            </ion-row>
+            <ion-row>
+              <p>Altura: <span class="text-edit">{{pokemon?.height}}cm</span></p>
+              <p>Peso: <span class="text-edit">{{pokemon?.weight}}Kg</span></p>
+            </ion-row>
+          </ion-grid>
+        </ion-card>
+      </ion-col>
+
+      <ion-col size="12" size-md="8">
+
+        <!-- Type -->
+        <ion-card class="card-skils pokemon-font">
+          <ion-card-header>
+            <ion-card-title>Tipo</ion-card-title>
+          </ion-card-header>
+          <ion-card-content>
+            <span *ngFor="let type of pokemon?.type" class="type-badge text-edit">{{type}}</span>
+          </ion-card-content>
+        </ion-card>
+
+        <!-- Abilities -->
+        <ion-card class="card-skils pokemon-font">
+          <ion-card-header>
+            <ion-card-title>Habilidades</ion-card-title>
+          </ion-card-header>
+          <ion-card-content>
+            <span *ngFor="let ability of pokemon?.abilities" class="text-edit">{{ ability }} </span>
+          </ion-card-content>
+        </ion-card>
+
+        <!-- Stats -->
+        <ion-card class="card-skils pokemon-font">
+          <ion-card-header>
+            <ion-card-title>Stats</ion-card-title>
+          </ion-card-header>
+          <ion-card-content>
+            <ion-grid>
+              <ion-row>
+                <ion-col size="12" size-sm="6" size-md="4" size-lg="3" *ngFor="let stats of pokemon?.stats"
+                  class="text-edit stat-box">
+                  <strong>{{stats.name}}:</strong> {{stats.base_stats}}
+                  <ion-progress-bar [value]="stats.base_stats / 100" color="tertiary"></ion-progress-bar>
+                </ion-col>
+              </ion-row>
+            </ion-grid>
+          </ion-card-content>
+        </ion-card>
+
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+</ion-content>

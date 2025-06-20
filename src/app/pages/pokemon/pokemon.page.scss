@@ -1,0 +1,76 @@
+ion-title:hover {
+  color: #007bff;
+  cursor: pointer;
+}
+
+.pokemon-page {
+  background-color: #1c1c2e;
+  color: #f5f5f5;
+
+  p {
+    display: flex;
+    gap: 10px;
+  }
+
+  ion-card {
+    background-color: #2c2c44;
+    border-radius: 12px;
+  }
+
+    ion-row {
+    width: 100%;
+    justify-content: space-evenly;
+  }
+
+  .pokemon-img {
+    width: 100%;
+    max-width: 500px;
+  }
+
+  ion-card-title {
+    color: #f5f5f5;
+  }
+
+  .profile-card {
+    background-color: #ef5350;
+    color: white;
+    text-align: center;
+    padding: 1rem;
+  }
+
+  .card-skils {
+    background-color: #2e3a59;
+    color: #f5f5f5;
+  }
+
+  .type-badge {
+    background-color: #ffca28;
+    padding: 4px 12px;
+    border-radius: 20px;
+    margin: 4px;
+    display: inline-block;
+    font-weight: bold;
+  }
+
+  .stat-box {
+    margin-bottom: 1rem;
+    background-color: #3c3c5c;
+    padding: 8px;
+    border-radius: 8px;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.3);
+  }
+
+  ion-progress-bar {
+    margin-top: 4px;
+    height: 8px;
+    --progress-background: #555;
+    --progress-bar-background: #66bb6a;
+  }
+
+  .text-edit {
+    font-family: "Press Start 2P", monospace;
+    font-size: 10px;
+    letter-spacing: 0.5px;
+    color: #f5f5f5;
+  }
+}
