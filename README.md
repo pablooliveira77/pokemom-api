@@ -29,7 +29,7 @@ The project follows standard **Angular coding practices** with Ionic-specific en
 Example:
 ```ts
 <ion-col size="12" size-sm="6" size-md="4">
-  <strong>{{ stats.name | titlecase }}</strong>: {{ stats.base_stat }}
+  <strong>{{ stats.name }}</strong>: {{ stats.base_stat }}
 </ion-col>
 ```
 
@@ -67,5 +67,5 @@ O projeto segue as convenções padrão do **Angular** com algumas adaptações 
 Exemplo:
 ```ts
 <ion-col size="12" size-sm="6" size-md="4">
-  <strong>{{ stats.name | titlecase }}</strong>: {{ stats.base_stat }}
+  <strong>{{ stats.name }}</strong>: {{ stats.base_stat }}
 </ion-col>
