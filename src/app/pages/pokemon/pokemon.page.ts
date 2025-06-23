@@ -1,5 +1,6 @@
 import { Component, OnInit } from "@angular/core";
 import { ActivatedRoute } from "@angular/router";
+import { FavoriteService } from "src/app/services/favorite.service";
 
 @Component({
   selector: "app-pokemon",
@@ -19,16 +20,28 @@ export class PokemonPage implements OnInit {
     height: number;
     weight: number;
   } | null = null;
+  isFav: boolean = false;
 
   constructor(
     private route: ActivatedRoute,
+    private favoriteService: FavoriteService
   ) {}
 
   // This method is called when the component is initialized
   // Esse método é chamado quando o componente é inicializado
   ngOnInit() {
     this.id = this.route.snapshot.paramMap.get("id") || "";
+    this.isFav = this.favoriteService.isFavorite(Number(this.id));
     this.buscarPokemon();
+  }
+
+  // This method toggles the favorite status of the Pokémon
+  // Esse método alterna o status de favorito do Pokémon
+  toggleFavorite() {
+    if (this.pokemon) {
+      this.favoriteService.toggleFavorite(this.pokemon.id);
+      this.isFav = !this.isFav;
+    }
   }
 
   // This method fetches the Pokémon data from the API

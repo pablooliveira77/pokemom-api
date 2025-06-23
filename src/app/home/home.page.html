@@ -1,14 +1,23 @@
 <ion-header>
   <ion-toolbar>
-    <ion-title>Pokemon App</ion-title>
+    <ion-segment value="all">
+      <ion-segment-button value="all" (click)="loadAll()">
+        <ion-label>Pokemon App</ion-label>
+      </ion-segment-button>
+      <ion-segment-button value="favorites" (click)="loadFavorites()">
+        <ion-label>Favorites</ion-label>
+      </ion-segment-button>
+    </ion-segment>
   </ion-toolbar>
 </ion-header>
 
 <ion-content class="ion-padding">
-  <div class="ion-text-center">
+  <div class="ion-text-center" *ngIf="buttonPages">
     <ion-button (click)="paginaAnterior()" [disabled]="paginaAtual === 1">
       Página anterior
     </ion-button>
+
+    <span style="margin: 0 12px;">Página {{ paginaAtual }}/{{pokemons.length / pokemonsPorPagina}}</span>
 
     <ion-button (click)="proximaPagina()" [disabled]="paginaAtual * pokemonsPorPagina >= pokemons.length">
       Ver próxima página
@@ -25,10 +34,13 @@
           </ion-card-header>
         </ion-card>
       </ion-col>
+      <ion-col size="12" *ngIf="!buttonPages && favorites.length === 0">
+        <p class="ion-text-center" *ngIf="!buttonPages && favorites.length === 0">Nenhum favorito adicionado</p>
+      </ion-col>
     </ion-row>
   </ion-grid>
 
-  <div class="ion-text-center">
+  <div class="ion-text-center" *ngIf="buttonPages">
     <ion-button (click)="paginaAnterior()" [disabled]="paginaAtual === 1">
       Página anterior
     </ion-button>

@@ -13,6 +13,9 @@
           <ion-grid>
             <ion-row>
               <ion-card-title>#{{ pokemon?.id }} {{ pokemon?.name | titlecase }}</ion-card-title>
+              <ion-button fill="clear" (click)="toggleFavorite()">
+                <ion-icon [name]="isFav ? 'heart' : 'heart-outline'" slot="icon-only" color="danger"></ion-icon>
+              </ion-button>
             </ion-row>
             <ion-row>
               <img [src]="pokemon?.image" alt="{{pokemon?.name}}" class="pokemon-img" />
